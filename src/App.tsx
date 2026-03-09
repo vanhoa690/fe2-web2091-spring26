@@ -1,11 +1,14 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Form, Input, Button } from "antd";
 import { Layout } from "antd";
 
 const { Header, Content, Footer } = Layout;
 
 function App() {
+  const onFinish = (values: any) => {
+    console.log(values);
+  };
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -47,7 +50,18 @@ function App() {
         <Button type="text">Click me</Button>
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
-          <Content style={{ padding: 20 }}>Content</Content>
+          <Content style={{ padding: 20 }}>
+            <Form onFinish={onFinish}>
+              <Form.Item label="Username" name="username">
+                <Input />
+              </Form.Item>
+              <Form.Item>
+                <Button htmlType="submit" type="primary">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </Content>
           <Footer>Footer</Footer>
         </Layout>
       </div>

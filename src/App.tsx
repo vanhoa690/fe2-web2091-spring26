@@ -1,8 +1,11 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
+import { Layout } from "antd";
 
+const { Header, Content, Footer } = Layout;
 function App() {
+  //
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -42,6 +45,11 @@ function App() {
         <Button type="dashed">Click me</Button>
         <Button type="link">Click me</Button>
         <Button type="text">Click me</Button>
+        <Layout>
+          <Header style={{ color: "white" }}>Header</Header>
+          <Content style={{ padding: 20 }}>Content</Content>
+          <Footer>Footer</Footer>
+        </Layout>
       </div>
 
       <Toaster />

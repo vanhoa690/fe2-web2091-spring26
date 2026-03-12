@@ -81,7 +81,7 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
-            {/* <Form onFinish={onFinish}>
+            <Form onFinish={onFinish}>
               <Form.Item label="Username" name="username">
                 <Input placeholder="username" />
               </Form.Item>
@@ -90,8 +90,13 @@ function App() {
                   Submit
                 </Button>
               </Form.Item>
-            </Form> */}
-            <Table columns={columns} dataSource={data} />
+            </Form>
+            <Table
+              columns={columns}
+              dataSource={data}
+              pagination={{ pageSize: 1 }}
+              // loading={true}
+            />
           </Content>
           <Footer>Footer</Footer>
         </Layout>

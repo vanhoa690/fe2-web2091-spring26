@@ -86,7 +86,11 @@ function App() {
                 </Button>
               </Form.Item>
             </Form>
-            <Table columns={columns} dataSource={data} />
+            <Table
+              columns={columns}
+              dataSource={data}
+              pagination={{ pageSize: 1 }}
+            />
           </Content>
           <Footer>Footer</Footer>
         </Layout>

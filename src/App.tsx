@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { Layout } from "antd";
 import { Form, Input, Button } from "antd";
+import { Table } from "antd";
 
 const { Header, Content, Footer } = Layout;
 function App() {
@@ -11,6 +12,17 @@ function App() {
 
     console.log(values);
   };
+
+  const columns = [
+    { title: "Ho va ten", dataIndex: "name" },
+    { title: "Do tuoi", dataIndex: "age" },
+    { title: "Mon hoc", dataIndex: "subject" },
+  ];
+  const data = [
+    { key: 1, name: "John", age: 25, subject: "Math" },
+    { key: 2, name: "Anna", age: 30, subject: "Science" },
+  ];
+
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -48,7 +60,7 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
-            <Form onFinish={onFinish}>
+            {/* <Form onFinish={onFinish}>
               <Form.Item label="Username" name="username">
                 <Input placeholder="username" />
               </Form.Item>
@@ -57,7 +69,8 @@ function App() {
                   Submit
                 </Button>
               </Form.Item>
-            </Form>
+            </Form> */}
+            <Table columns={columns} dataSource={data} />
           </Content>
           <Footer>Footer</Footer>
         </Layout>

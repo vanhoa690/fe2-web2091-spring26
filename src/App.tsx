@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { Layout } from "antd";
+import { Image, Layout } from "antd";
 import { Form, Input, Button } from "antd";
 import { Table } from "antd";
 
@@ -17,10 +17,31 @@ function App() {
     { title: "Ho va ten", dataIndex: "name" },
     { title: "Do tuoi", dataIndex: "age" },
     { title: "Mon hoc", dataIndex: "subject" },
+    {
+      title: "Hinh anh",
+      dataIndex: "image",
+      render: (image: string) => (
+        <Image src={image} alt="hinh anh" width={100} height={100} />
+      ),
+    },
   ];
   const data = [
-    { key: 1, name: "John", age: 25, subject: "Math" },
-    { key: 2, name: "Anna", age: 30, subject: "Science" },
+    {
+      key: 1,
+      name: "John",
+      age: 25,
+      subject: "Math",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ7PetZoiMvh8-TEPna1ga9r6kDQDENKuWQFfXT-0&usqp=CAE&s",
+    },
+    {
+      key: 2,
+      name: "Anna",
+      age: 30,
+      subject: "Science",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ7PetZoiMvh8-TEPna1ga9r6kDQDENKuWQFfXT-0&usqp=CAE&s",
+    },
   ];
 
   return (

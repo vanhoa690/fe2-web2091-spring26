@@ -401,7 +401,3 @@ Trong bài này bạn đã học:
 - Layout Form
 - Submit dữ liệu
 - Tạo Form CRUD cơ bản
-
-Trong bài tiếp theo chúng ta sẽ học:
-
-**Lesson 4 – Modal + Form CRUD với Ant Design**

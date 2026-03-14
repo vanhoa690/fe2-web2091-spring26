@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { Form, Input, Button, Table } from "antd";
+import { Form, Input, Button, Table, InputNumber, Select } from "antd";
 import { Layout } from "antd";
 import { Image } from "antd";
 const { Header, Content, Footer } = Layout;
@@ -76,13 +76,52 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
-            <Form onFinish={onFinish}>
-              <Form.Item label="Username" name="username">
-                <Input />
+            <Form
+              layout="vertical"
+              onFinish={onFinish}
+              style={{ maxWidth: 400 }}
+            >
+              <Form.Item
+                label="Price"
+                name="price"
+                rules={[
+                  { min: 0, type: "number", message: "Gia phai lon hon khong" },
+                ]}
+              >
+                <InputNumber />
+              </Form.Item>
+
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  { required: true, message: "Please input your password!" },
+                  {
+                    min: 6,
+                    message: "Password must be at least 6 characters!",
+                  },
+                ]}
+              >
+                <Input.Password />
               </Form.Item>
               <Form.Item>
-                <Button htmlType="submit" type="primary">
-                  Submit
+                <Select
+                  options={[
+                    {
+                      value: "FE1",
+                      label: "FE1",
+                    },
+                    {
+                      value: "FE2",
+                      label: "FE2",
+                    },
+                  ]}
+                  placeholder="Chọn môn học"
+                />
+              </Form.Item>
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  Đăng nhập
                 </Button>
               </Form.Item>
             </Form>

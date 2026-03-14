@@ -121,13 +121,15 @@ export default LoginForm;
 
 Component nhập dữ liệu.
 
-Các loại input phổ biến:
+Các loại input, select phổ biến:
 
 | Component        | Mô tả           |
 | ---------------- | --------------- |
 | `Input`          | nhập text       |
 | `Input.Password` | nhập mật khẩu   |
 | `Input.TextArea` | nhập nhiều dòng |
+| `InputNumber`    | nhập number     |
+| `Select`         | chọn 1 option   |
 
 ---
 
@@ -154,12 +156,13 @@ Validation giúp kiểm tra dữ liệu trước khi submit.
 
 ## Một số rule phổ biến
 
-| Rule          | Mô tả            |
-| ------------- | ---------------- |
-| `required`    | bắt buộc nhập    |
-| `min`         | độ dài tối thiểu |
-| `max`         | độ dài tối đa    |
-| `type: email` | kiểm tra email   |
+| Rule           | Mô tả            |
+| -------------- | ---------------- |
+| `required`     | bắt buộc nhập    |
+| `min`          | độ dài tối thiểu |
+| `max`          | độ dài tối đa    |
+| `type: email`  | kiểm tra email   |
+| `type: number` | kiểm tra số      |
 
 ---
 
@@ -292,7 +295,7 @@ form.resetFields();
 Form thêm sản phẩm.
 
 ```tsx
-import { Form, Input, Button, InputNumber } from "antd";
+import { Form, Input, Button, InputNumber, Select } from "antd";
 
 const ProductForm = () => {
   const onFinish = (values: any) => {
@@ -307,6 +310,18 @@ const ProductForm = () => {
 
       <Form.Item label="Giá" name="price" rules={[{ required: true }]}>
         <InputNumber style={{ width: "100%" }} />
+      </Form.Item>
+
+      <Form.Item label="Danh mục" name="category">
+        <Select
+          placeholder="Chọn danh mục"
+          options={[
+            { label: "Laptop", value: "laptop" },
+            { label: "Điện thoại", value: "phone" },
+            { label: "Tablet", value: "tablet" },
+            { label: "Phụ kiện", value: "accessory" },
+          ]}
+        />
       </Form.Item>
 
       <Form.Item label="Mô tả" name="description">
@@ -358,6 +373,7 @@ Yêu cầu:
 
 - Email đúng định dạng
 - Password tối thiểu 6 ký tự
+- Confirm Password trùng Password
 
 ---
 
@@ -383,6 +399,7 @@ Tạo **Form thêm bài viết**
 Field:
 
 - Title
+- Category (Select box)
 - Slug
 - Content
 - Image URL

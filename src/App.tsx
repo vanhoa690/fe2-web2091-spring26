@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Form, Input, Button, Table, InputNumber, Select } from "antd";
 import { Layout } from "antd";
 import { Image } from "antd";
+import StoryForm from "./pages/Lab4";
 const { Header, Content, Footer } = Layout;
 
 function App() {
@@ -76,7 +77,8 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
-            <Form
+            <StoryForm />
+            {/* <Form
               layout="vertical"
               onFinish={onFinish}
               style={{ maxWidth: 400 }}
@@ -124,12 +126,12 @@ function App() {
                   Đăng nhập
                 </Button>
               </Form.Item>
-            </Form>
-            <Table
+            </Form> */}
+            {/* <Table
               columns={columns}
               dataSource={data}
               pagination={{ pageSize: 1 }}
-            />
+            /> */}
           </Content>
           <Footer>Footer</Footer>
         </Layout>

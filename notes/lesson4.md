@@ -137,6 +137,7 @@ Chúng ta sẽ:
 import { Form, Input, Button } from "antd";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const StoryForm = () => {
   const mutation = useMutation({
@@ -147,11 +148,11 @@ const StoryForm = () => {
     },
 
     onSuccess: () => {
-      alert("Thêm truyện thành công");
+      toast.success("Thêm truyện thành công");
     },
 
     onError: () => {
-      alert("Có lỗi xảy ra");
+      toast.error("Có lỗi xảy ra");
     },
   });
 
@@ -322,27 +323,29 @@ export default StoryPage;
 
 ## Bài 1
 
-Tạo **Form thêm truyện**
+Tạo **Form thêm danh mục truyện**
 
 Field:
 
-- Title
-- Author
-- Image
-- Description
+- Title (required)
+- Description (Input.TextArea)
+- Active (Checkbox)
 
-Submit → console log dữ liệu.
+Submit → gọi **Axios POST API**
+
+```
+POST /categories
+```
 
 ---
 
 ## Bài 2
 
-Thay console log bằng **Axios POST API**
-
-API:
+Thay **any** thành type/interface tương ứng Story
 
 ```
-POST /stories
+data: any
+values: any
 ```
 
 ---
@@ -359,18 +362,22 @@ mutation.isPending
 
 ---
 
-## Bài 4
+## Bài 4 (Nâng cao)
 
-Hiển thị thông báo khi:
+Hiển thị danh sách để chọn 1 danh mục khi thêm truyện mới.
 
-- thêm thành công
-- thêm thất bại
+- Call API GET /categories để lấy danh sách
+- Đưa dữ liệu categories vào options của Select
 
 Sử dụng:
 
 ```
-onSuccess
-onError
+Select options: [
+    {
+        value: categoryId,
+        label: categoryTitle
+    }
+]
 ```
 
 ---
@@ -386,5 +393,3 @@ Trong bài này bạn đã học:
 - Submit dữ liệu lên server
 
 Trong bài tiếp theo chúng ta sẽ học:
-
-**Lesson 5 – CRUD truyện tranh với Ant Design Table + React Query**

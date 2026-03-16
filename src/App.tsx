@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { Image, Layout } from "antd";
+import { Image, InputNumber, Layout, Select } from "antd";
 import { Form, Input, Button } from "antd";
 import { Table } from "antd";
 
@@ -81,9 +81,44 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
-            <Form onFinish={onFinish}>
-              <Form.Item label="Username" name="username">
+            <Form layout="vertical" onFinish={onFinish}>
+              <Form.Item
+                label="Username"
+                name="username"
+                rules={[
+                  { required: true, message: "Please input your username!" },
+                  { min: 4, message: "Username must be at least 4 characters" },
+                ]}
+              >
                 <Input placeholder="username" />
+              </Form.Item>
+              <Form.Item label="Password" name="password">
+                <Input.Password placeholder="password" />
+              </Form.Item>
+              <Form.Item label="Password" name="password">
+                <Input.TextArea placeholder="password" />
+              </Form.Item>
+              <Form.Item
+                label="Price"
+                name="price"
+                rules={[
+                  { required: true, message: "Please input the price!" },
+                  {
+                    min: 1,
+                    message: "Price must be a positive number",
+                    type: "number",
+                  },
+                ]}
+              >
+                <InputNumber type="number" placeholder="price" />
+              </Form.Item>
+              <Form.Item label="Category" name="category">
+                <Select
+                  options={[
+                    { value: 1, label: "Option 1" },
+                    { value: 2, label: "Option 2" },
+                  ]}
+                />
               </Form.Item>
               <Form.Item>
                 <Button htmlType="submit" type="primary">

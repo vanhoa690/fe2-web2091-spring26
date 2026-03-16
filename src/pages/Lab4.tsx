@@ -3,14 +3,14 @@ import { Button, Form, Input } from "antd";
 import axios from "axios";
 
 export default function StoryForm() {
-  const mutation = useMutation({
+  const { mutate } = useMutation({
     mutationFn: async (values: any) => {
       await axios.post("http://localhost:3000/stories", values);
     },
   });
-
   const onFinish = async (values: any) => {
     console.log("Success:", values);
+    mutate(values);
   };
   return (
     <Form layout="vertical" onFinish={onFinish}>

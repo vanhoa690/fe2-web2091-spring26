@@ -1,11 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function StoryForm() {
   const { mutate, isSuccess, isPending } = useMutation({
     mutationFn: async (values: any) => {
       await axios.post("http://localhost:3000/stories", values);
+    },
+    onError: () => {
+      toast.error("loi api roi");
+    },
+    onSuccess: () => {
+      toast.success("thanh cong roi ae oi!");
     },
   });
   const onFinish = async (values: any) => {

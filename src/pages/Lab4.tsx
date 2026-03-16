@@ -3,7 +3,7 @@ import { Button, Form, Input } from "antd";
 import axios from "axios";
 
 export default function StoryForm() {
-  const { mutate } = useMutation({
+  const { mutate, isSuccess, isPending } = useMutation({
     mutationFn: async (values: any) => {
       await axios.post("http://localhost:3000/stories", values);
     },
@@ -26,7 +26,10 @@ export default function StoryForm() {
       <Form.Item label="Description" name="description">
         <Input.TextArea />
       </Form.Item>
-      <Button htmlType="submit">Submit</Button>
+      <Button htmlType="submit" loading={isPending} type="primary">
+        Submit
+      </Button>
+      {isSuccess && <p>Story submitted successfully!</p>}
     </Form>
   );
 }

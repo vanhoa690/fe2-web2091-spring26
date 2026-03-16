@@ -391,5 +391,3 @@ Trong bài này bạn đã học:
 - Gọi API bằng Axios
 - Kết hợp Ant Design Form
 - Submit dữ liệu lên server
-
-Trong bài tiếp theo chúng ta sẽ học:

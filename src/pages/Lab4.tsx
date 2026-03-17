@@ -1,11 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function StoryForm() {
   const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: async (values: any) => {
       await axios.post("http://localhost:3000/stories", values);
+    },
+    onSuccess: () => {
+      toast.success("Story created successfully!");
+    },
+    onError: () => {
+      toast.error("Failed to create story.");
     },
   });
 

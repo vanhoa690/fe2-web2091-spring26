@@ -198,7 +198,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 const queryClient = useQueryClient();
 
-queryClient.invalidateQueries(["stories"]);
+queryClient.invalidateQueries({ queryKey: ["stories"] });
 ```
 
 👉 Gọi trong `onSuccess` của `useMutation`

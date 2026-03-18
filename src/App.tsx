@@ -79,7 +79,7 @@ function App() {
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
             <StoryList />
-            {/* <StoryForm /> */}
+            <StoryForm />
             {/* <Form
               layout="vertical"
               onFinish={onFinish}

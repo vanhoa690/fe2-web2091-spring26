@@ -4,6 +4,7 @@ import { Form, Input, Button, Table, InputNumber, Select } from "antd";
 import { Layout } from "antd";
 import { Image } from "antd";
 import StoryForm from "./pages/Lab4";
+import StoryList from "./pages/Lab5";
 const { Header, Content, Footer } = Layout;
 
 function App() {
@@ -77,7 +78,8 @@ function App() {
         <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
-            <StoryForm />
+            <StoryList />
+            {/* <StoryForm /> */}
             {/* <Form
               layout="vertical"
               onFinish={onFinish}

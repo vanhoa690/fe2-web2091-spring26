@@ -1,28 +1,11 @@
 {
   "stories": [
     {
-      "title": "ten truyen",
+      "title": "one piece",
+      "author": "oda",
+      "image": "https://hamtruyen-api.hamtruyen.top/api/image/proxy?url=http%3A%2F%2Fcdn.hamtruyen.top%2Fstorage%2Fone-piece.webp",
+      "views": 100,
       "id": 1
-    },
-    {
-      "title": "ten truyen",
-      "id": 2
-    },
-    {
-      "title": "ten truyen",
-      "id": 3
-    },
-    {
-      "title": "ten truyen",
-      "id": 4
-    },
-    {
-      "title": "one piece",
-      "id": 5
-    },
-    {
-      "title": "one piece",
-      "id": 6
     }
   ],
   "categories": [],

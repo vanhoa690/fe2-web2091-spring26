@@ -282,10 +282,21 @@ const [form] = Form.useForm();
 <Form form={form}>
 ```
 
-Reset:
+Reset (xóa dữ liệu input form):
 
 ```tsx
 form.resetFields();
+```
+
+Reset có data (fill dữ liệu vào input form):
+
+```tsx
+const data = {
+  title: "One Piece",
+  author: "Oda",
+};
+
+form.setFieldsValue(data);
 ```
 
 ---

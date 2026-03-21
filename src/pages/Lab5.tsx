@@ -35,15 +35,18 @@ export function StoryList() {
     {
       title: "Action",
       render: (_: any, record: any) => (
-        <Popconfirm
-          title="Delete the story"
-          description="Are you sure to delete this story?"
-          okText="Yes"
-          cancelText="No"
-          onConfirm={() => mutate(record.id)}
-        >
-          <Button danger>Delete</Button>
-        </Popconfirm>
+        <>
+          <Popconfirm
+            title="Delete the story"
+            description="Are you sure to delete this story?"
+            okText="Yes"
+            cancelText="No"
+            onConfirm={() => mutate(record.id)}
+          >
+            <Button danger>Delete</Button>
+          </Popconfirm>
+          <Button type="primary">Edit</Button>
+        </>
       ),
     },
   ];

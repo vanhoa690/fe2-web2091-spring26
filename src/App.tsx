@@ -1,10 +1,11 @@
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Image, InputNumber, Layout, Select } from "antd";
 import { Form, Input, Button } from "antd";
 import { Table } from "antd";
 import StoryForm from "./pages/Lab4";
 import { StoryList } from "./pages/Lab5";
+import EditStory from "./pages/Lab6";
 
 const { Header, Content, Footer } = Layout;
 function App() {
@@ -81,8 +82,11 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
         <Layout>
-          <Header style={{ color: "white" }}>Header</Header>
+          {/* <Header style={{ color: "white" }}>Header</Header> */}
           <Content style={{ padding: 20 }}>
+            <Routes>
+              <Route path="/edit/:id" element={<EditStory />}></Route>
+            </Routes>
             <StoryList />
             {/* <StoryForm /> */}
             {/* <Form layout="vertical" onFinish={onFinish}>

@@ -1,9 +1,23 @@
 // context API chua state global: user
 
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const UserContext = createContext(null);
+type User = {
+  name: string;
+};
+
+type UserContextType = {
+  user: User | null;
+  setUser: (user: User | null) => void;
+};
+
+const UserContext = createContext<UserContextType | null>(null);
 
 export const UserProvider = ({ children }: { children: any }) => {
-  return <UserContext.Provider value={null}>{children}</UserContext.Provider>;
+  const [user, setUser] = useState<User | null>(null);
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
 };

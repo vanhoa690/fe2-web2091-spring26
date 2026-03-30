@@ -8,10 +8,7 @@
 - Vì sao cần dùng Context API?
 - Cách sử dụng Context API
 - So sánh với props
-- Ví dụ thực tế
 - Hạn chế
-- Hướng nâng cấp Zustand
-- Bài tập thực hành
 
 ---
 

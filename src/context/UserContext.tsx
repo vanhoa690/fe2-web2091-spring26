@@ -11,10 +11,10 @@ type UserContextType = {
   setUser: (user: User | null) => void;
 };
 
-const UserContext = createContext<UserContextType | null>(null);
+export const UserContext = createContext<UserContextType | null>(null);
 
 export const UserProvider = ({ children }: { children: any }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({ name: "hoadv" });
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

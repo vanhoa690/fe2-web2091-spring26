@@ -1,15 +1,22 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
+
+type User = {
+  name: string;
+};
 
 type UserContextType = {
-  username: string;
+  user: User | null;
+  setUser: (user: User | null) => void;
 };
 // create context
 export const UserContext = createContext<UserContextType | null>(null);
 
 // provider component
 export const UserProvider = ({ children }: { children: any }) => {
-  const username = "hoadv";
+  const [user, setUser] = useState<User | null>(null);
   return (
-    <UserContext.Provider value={{ username }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
   );
 };

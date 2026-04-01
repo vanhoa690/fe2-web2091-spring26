@@ -44,13 +44,19 @@ npm install zustand
 
 ---
 
-## ⚙️ Setup JSON Server Auth
+## Setup JSON Server Auth
 
 ### db.json
 
 ```json
 {
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$3cvf5QEZ67nFSzYpYScBiOcyghM9w/Y.2HoZs/9ZJC6qccHPv62Cq",
+      "id": 1
+    }
+  ]
 }
 ```
 
@@ -122,7 +128,7 @@ Kết luận
 
 ---
 
-## 📁 Login.tsx
+## 📁src/pages/Login.tsx
 
 ```tsx
 import { Form, Input, Button, message } from "antd";
@@ -193,13 +199,13 @@ export default Login;
 
 ---
 
-## 🔄 FLOW
+## FLOW
 
-1.  User nhập email/password\
-2.  Gọi API login\
-3.  Nhận token + user\
-4.  Lưu vào Zustand\
-5.  UI tự update\
+1.  User nhập email/password
+2.  Gọi API login
+3.  Nhận token + user
+4.  Lưu vào Zustand
+5.  UI tự update
 6.  Reload vẫn giữ login
 
 ---
@@ -210,7 +216,7 @@ export default Login;
 - Phù hợp auth thực tế
 - Có persist để lưu trạng thái
 
-# Bài tập -- Zustand Auth (Lesson 10)
+# Bài tập
 
 ## Bài 1 – Register User
 
@@ -220,7 +226,7 @@ export default Login;
   - username
   - email
   - password
-- Gọi API: sử dụng useMutation gọi API URL http://localhost:3000/register
+- Sử dụng useMutation gọi API URL http://localhost:3000/register
 
 ### Kết quả mong muốn
 

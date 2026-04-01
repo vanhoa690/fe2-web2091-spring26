@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-import { useContext } from "react";
 import { Button } from "antd";
+import { useAuthStore } from "../stores/useAuthStore";
 
 export default function Navbar() {
-  const context = useContext(UserContext);
-  if (!context) return null;
-  const { user, setUser } = context;
+  const { user, setUser } = useAuthStore();
 
+  const handleLogin = () => {
+    setUser({ name: "hoadv21", avatar: "https://i.pravatar.cc/150?img=3" });
+  };
   return (
     <nav className="bg-blue-600 text-white shadow">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -29,7 +29,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center space-x-6">
           <span>User: {user?.name || "Guest"}</span>
-          <Button onClick={() => setUser({ name: "hoadv21" })}>Login</Button>
+          <Button onClick={handleLogin}>Login</Button>
           <Link to="#" className="hover:text-gray-200">
             Đăng nhập
           </Link>

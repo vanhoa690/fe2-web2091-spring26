@@ -62,9 +62,7 @@ npm run db
 
 ---
 
--
-
-## 📁 useAuthStore.ts
+## 📁 src/stores/useAuthStore.ts
 
 ```ts
 import { create } from "zustand";

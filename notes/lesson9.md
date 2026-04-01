@@ -127,18 +127,18 @@ Kết luận
 ```tsx
 import { Form, Input, Button, message } from "antd";
 import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { useAuthStore } from "../stores/useAuthStore";
-import { loginApi } from "../services/authService";
 
 const Login = () => {
   const { setUser } = useAuthStore();
 
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: async (values: any) => {
       return await axios.post("http://localhost:3000/login", values);
     },
 
-    onSuccess: (data) => {
+    onSuccess: ({ data }) => {
       // lưu vào zustand
       setUser({
         user: data.user,
@@ -180,12 +180,7 @@ const Login = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={mutation.isPending}
-          block
-        >
+        <Button type="primary" htmlType="submit" loading={isPending} block>
           Đăng nhập
         </Button>
       </Form.Item>

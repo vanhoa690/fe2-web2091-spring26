@@ -30,6 +30,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-6">
           <span>User: {user?.name || "Guest"}</span>
           <Button onClick={handleLogin}>Login</Button>
+          <Button onClick={() => setUser(null)}>Logout</Button>
           <Link to="#" className="hover:text-gray-200">
             Đăng nhập
           </Link>

@@ -241,7 +241,6 @@ const { list, add, remove, update } = useCRUDStory();
 ```
 
 **Gợi ý**
-Bên trong sử dụng:
 
 - useQuery → lấy danh sách
 - useMutation → thêm / xóa / sửa

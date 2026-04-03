@@ -246,7 +246,3 @@ Bên trong sử dụng:
 - useQuery → lấy danh sách
 - useMutation → thêm / xóa / sửa
 - Dùng invalidateQueries để reload data
-
-```
-
-```

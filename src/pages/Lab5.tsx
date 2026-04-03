@@ -3,14 +3,9 @@ import { Button, Image, Popconfirm, Table } from "antd";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
+import { useStoryList } from "../hooks/useStoryList";
 export default function StoryList() {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["stories"],
-    queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/stories");
-      return res.data;
-    },
-  });
+  const { data, isLoading, isError } = useStoryList();
 
   const qc = useQueryClient();
 

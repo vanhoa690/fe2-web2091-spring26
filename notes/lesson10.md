@@ -223,9 +223,7 @@ export default AddStory;
 
 - Tạo custom hook `useUpdateStory`
 - Sử dụng `useMutation`
-- Gọi API:
-
-PUT http://localhost:3000/stories/:id
+- Gọi API: PUT http://localhost:3000/stories/:id
 
 #### Kết quả mong muốn
 

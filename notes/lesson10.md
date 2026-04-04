@@ -4,14 +4,57 @@
 
 ## Nội dung
 
+- Hook là gì?
 - Custom Hook + React Query
 - useStoryList, useAddStory, useDeleteStory
-- Ant Design Table
 - Auto refetch
 
 ---
 
-## 1. useStoryList
+## 1. Hook là gì?
+
+Hook là các hàm đặc biệt trong React giúp:
+
+- Quản lý state (`useState`)
+- Xử lý lifecycle (`useEffect`)
+- Truy cập context (`useContext`)
+- Thao tác DOM (`useRef`)
+
+👉 Chỉ sử dụng trong **Function Component**
+
+---
+
+## 2. Custom Hook là gì?
+
+Custom Hook là hook do chúng ta tự tạo để tái sử dụng logic.
+
+👉 Quy ước: phải bắt đầu bằng use
+
+### 3. Khi nào nên dùng Custom Hook?
+
+- Khi logic bị lặp lại nhiều nơi
+- Khi muốn tách riêng phần xử lý API
+- Khi component quá dài / khó đọc
+- Khi muốn tái sử dụng logic
+
+### 4. Ưu điểm của Custom Hook
+
+- Tái sử dụng code
+- Code sạch, dễ đọc
+- Tách logic khỏi UI
+- Dễ maintain
+- Dễ test
+
+### 5. Nhược điểm của Custom Hook
+
+- Khó debug nếu viết không rõ ràng
+- Dễ lạm dụng (hook quá nhiều)
+- Có thể bị phụ thuộc lẫn nhau
+- Nếu thiết kế kém → khó mở rộng
+
+---
+
+## 1. src/hooks/useStoryList
 
 ```ts
 import { useQuery } from "@tanstack/react-query";
@@ -30,7 +73,7 @@ export const useStoryList = () => {
 
 ---
 
-## 2. useAddStory
+## 2. src/hooks/useAddStory
 
 ```ts
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -53,7 +96,7 @@ export const useAddStory = () => {
 
 ---
 
-## 3. useDeleteStory
+## 3. src/hooks/useDeleteStory
 
 ```ts
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -180,9 +223,7 @@ export default AddStory;
 
 - Tạo custom hook `useUpdateStory`
 - Sử dụng `useMutation`
-- Gọi API:
-
-PUT http://localhost:3000/stories/:id
+- Gọi API: PUT http://localhost:3000/stories/:id
 
 #### Kết quả mong muốn
 
@@ -191,7 +232,8 @@ PUT http://localhost:3000/stories/:id
 
 ---
 
-Bài 2 – useCRUDStory
+### Bài 2 – useCRUDStory
+
 Gộp tất cả logic vào 1 hook duy nhất:
 
 ```ts
@@ -199,12 +241,7 @@ const { list, add, remove, update } = useCRUDStory();
 ```
 
 **Gợi ý**
-Bên trong sử dụng:
 
 - useQuery → lấy danh sách
 - useMutation → thêm / xóa / sửa
 - Dùng invalidateQueries để reload data
-
-```
-
-```

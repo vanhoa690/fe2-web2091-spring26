@@ -14,6 +14,9 @@ export const useAuthStore = create<AuthState>()(
     }),
     {
       name: "user-storage",
+      // partialize(state) {
+      //   return { user: state.user };
+      // },
     },
   ),
 );

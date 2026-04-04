@@ -1,15 +1,17 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button, Image, Popconfirm, Table } from "antd";
 import axios from "axios";
+import { useStoryList } from "../hooks/useStoryList";
 
 export function StoryList() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["stories"],
-    queryFn: async () => {
-      const res = await axios.get("http://localhost:3000/stories");
-      return res.data;
-    },
-  });
+  const { data, isLoading } = useStoryList();
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["stories"],
+  //   queryFn: async () => {
+  //     const res = await axios.get("http://localhost:3000/stories");
+  //     return res.data;
+  //   },
+  // });
   const qc = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: async (id: number) =>

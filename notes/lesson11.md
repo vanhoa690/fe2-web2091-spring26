@@ -1,6 +1,6 @@
 # Ant Design + React + React Query + Context/Zustand
 
-# Lesson 8 --- Ôn tập CRUD + Auth + Custom Hook
+# Lesson 11 --- Ôn tập CRUD + Auth + Custom Hook
 
 ---
 
